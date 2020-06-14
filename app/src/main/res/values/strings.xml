@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FloorEstimator</string>
+    <string name="main_userType_title">Viewing app as:</string>
+    <string name="main_userType_default">General User</string>
 </resources>
