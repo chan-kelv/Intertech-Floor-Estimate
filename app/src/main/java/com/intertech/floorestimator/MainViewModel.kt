@@ -8,6 +8,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
 import com.intertech.floorestimator.ui.MainRepository
 import com.intertech.floorestimator.util.TextResUtil
+import timber.log.Timber
 
 class MainViewModel(private val mainRepo: MainRepository): ViewModel() {
     private lateinit var fbAuth: FirebaseAuth
@@ -15,26 +16,47 @@ class MainViewModel(private val mainRepo: MainRepository): ViewModel() {
     private val userTypeText: MutableLiveData<SpannableString> by lazy { MutableLiveData<SpannableString>() }
     fun getUserTypeText(): LiveData<SpannableString> = userTypeText
 
-    private val userTypeFetchingAuth: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
-    fun getUserTypeFetchingAuth(): LiveData<Boolean> = userTypeFetchingAuth
+    private val isAdminUser: MutableLiveData<Boolean> by lazy { MutableLiveData<Boolean>() }
+    fun getIsAdminUser(): LiveData<Boolean> = isAdminUser
 
     init {
         val defaultUserType = TextResUtil.getStringFromRes(R.string.main_userType_general)
         userTypeText.value = TextResUtil.createUnderlineText(defaultUserType)
 
-        userTypeFetchingAuth.value = false
+        isAdminUser.value = false
 
         fbAuth = FirebaseAuth.getInstance()
+        fbAuth.addAuthStateListener { authStatus ->
+            updateAdminAuthState()
+        }
     }
 
-    fun checkAdminAuth() {
-        userTypeText.value = if (fbAuth.currentUser == null) {
-            val generalUserString = TextResUtil.getStringFromRes(R.string.main_userType_general)
-            TextResUtil.createUnderlineText(generalUserString)
-        } else {
-            val adminUserString = TextResUtil.getStringFromRes(R.string.main_userType_admin)
-            TextResUtil.createUnderlineText(adminUserString)
+    fun updateAdminAuthState() {
+        var userString = TextResUtil.getStringFromRes(R.string.main_userType_general)
+        var isAdmin = false
+
+        if (fbAuth.currentUser != null) {
+            userString = TextResUtil.getStringFromRes(R.string.main_userType_admin)
+            isAdmin = true
         }
+
+        userTypeText.value = TextResUtil.createUnderlineText(userString)
+        isAdminUser.value = isAdmin
+    }
+
+    fun attemptAdminLogin(email: String, password: String) {
+        fbAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
+            if (task.isSuccessful) {
+                val adminUserString = TextResUtil.getStringFromRes(R.string.main_userType_admin)
+                userTypeText.value = TextResUtil.createUnderlineText(adminUserString)
+            } else {
+                Timber.e(task.exception)
+            }
+        }
+    }
+
+    fun adminLogout() {
+        fbAuth.signOut()
     }
 
     class MainViewModelFactory(private val mainRepo: MainRepository): ViewModelProvider.Factory {

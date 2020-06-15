@@ -3,4 +3,8 @@
     <string name="main_userType_title">Viewing app as:</string>
     <string name="main_userType_general">General User</string>
     <string name="main_userType_admin">Admin User</string>
+    <string name="main_logout"><u>Logout</u></string>
+
+    <string name="login_email_hint">Email</string>
+    <string name="login_pw_hint">Password</string>
 </resources>
