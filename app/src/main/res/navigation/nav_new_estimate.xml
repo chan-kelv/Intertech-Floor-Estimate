@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_new_estimate"
+    app:startDestination="@id/estimateCustomerInfo">
+
+    <fragment
+        android:id="@+id/estimateCustomerInfo"
+        android:name="com.intertech.floorestimator.ui.EstimateCustomerInfo"
+        android:label="fragment_estimate_customer_info"
+        tools:layout="@layout/fragment_estimate_customer_info" >
+        <action
+            android:id="@+id/action_estimateCustomerInfo_to_estimateServiceArea"
+            app:destination="@id/estimateServiceArea" />
+    </fragment>
+    <fragment
+        android:id="@+id/estimateServiceArea"
+        android:name="com.intertech.floorestimator.ui.EstimateServiceArea"
+        android:label="fragment_estimate_service_area"
+        tools:layout="@layout/fragment_estimate_service_area" />
+</navigation>

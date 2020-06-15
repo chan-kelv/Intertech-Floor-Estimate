@@ -1,5 +1,6 @@
 package com.intertech.floorestimator.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -45,7 +46,7 @@ class MainActivity : BaseActivity() {
     }
 
     private fun startNewEstimate() {
-        TODO("Not yet implemented")
+        startActivity(Intent(this, NewEstimateActivity::class.java))
     }
 
     private fun adminLogin() {
