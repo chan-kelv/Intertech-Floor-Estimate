@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.NewEstimateActivity"></activity>
+        <activity android:name=".ui.NewEstimateActivity"/>
         <activity
             android:name=".ui.SplashActivity"
             android:theme="@style/SplashScreenTheme">

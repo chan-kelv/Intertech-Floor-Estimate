@@ -6,7 +6,7 @@
             android:radius="60dp"
             android:topLeftRadius="30dp"
             android:topRightRadius="30dp" />
-    <solid android:color="@color/bttn_grey" />
+    <solid android:color="@color/bttn_not_pure_white" />
     <size
         android:height="60dp"
         android:width="270dp" />

@@ -22,6 +22,12 @@ class EstimateCustomerInfo : Fragment() {
         bttn_info_start.setOnClickListener { navigateToServiceArea() }
     }
 
+    override fun onStart() {
+        super.onStart()
+        //TODO can be interface listener pattern
+        (activity as NewEstimateActivity).setToolbarTitle("Customer Info")
+    }
+
     fun navigateToServiceArea() {
         findNavController().navigate(R.id.action_estimateCustomerInfo_to_estimateServiceArea)
     }
