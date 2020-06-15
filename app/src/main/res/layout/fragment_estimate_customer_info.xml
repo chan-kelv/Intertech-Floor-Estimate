@@ -5,14 +5,173 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.EstimateCustomerInfo">
-
-    <Button
-        android:id="@+id/bttn_info_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:text="Start Estimate"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <TextView
+                    android:id="@+id/txt_custInfo_dateTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="Date:"/>
+                <EditText
+                    android:id="@+id/input_custInfo_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Date"
+                    android:focusable="false"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp" />
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txt_custInfo_nameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Name:" />
+            <EditText
+                android:id="@+id/input_custInfo_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:hint="First Last"
+                android:ems="10"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txt_custInfo_addressTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Address:"/>
+            <EditText
+                android:id="@+id/input_custInfo_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLength="3"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:hint="123 St, Vancouver"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txt_custInfo_postalTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Postal Code:"/>
+            <EditText
+                android:id="@+id/input_custInfo_postal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:hint="V1N C3R"/>
+            </LinearLayout>
+        </TableRow>
+
+        <com.intertech.floorestimator.ui.TableRowPhone
+            android:id="@+id/row_custInfo_phone"/>
+        <com.intertech.floorestimator.ui.TableRowPhone
+            android:id="@+id/row_custInfo_phone2"
+            android:visibility="gone"
+            tools:visibility="visible"/>
+        <com.intertech.floorestimator.ui.TableRowPhone
+            android:id="@+id/row_custInfo_phone3"
+            android:visibility="gone"/>
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center">
+            <Button
+                android:id="@+id/bttn_custInfo_morePhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:text="+ add more phone numbers"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"/>
+            </LinearLayout>
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/txt_custInfo_attnTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:text="Attention:" />
+            <EditText
+                android:id="@+id/input_custInfo_attnName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="8dp"
+                android:hint="First Last"
+                android:ems="10"/>
+            </LinearLayout>
+        </TableRow>
+    </TableLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

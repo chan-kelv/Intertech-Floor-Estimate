@@ -2,9 +2,11 @@ package com.intertech.floorestimator.ui
 
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.intertech.floorestimator.R
 import kotlinx.android.synthetic.main.activity_new_estimate.*
 import timber.log.Timber
@@ -17,7 +19,20 @@ class NewEstimateActivity : BaseActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        return super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.menu_start, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        var consumed = false
+        when(item.itemId) {
+            R.id.item_startMenu_start -> {
+                navigateToServiceArea()
+                consumed = true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
+        return consumed
     }
 
     override fun onResume() {
@@ -32,6 +47,10 @@ class NewEstimateActivity : BaseActivity() {
 
     fun setToolbarTitle(title: String) {
         supportActionBar?.title = title
+    }
+
+    private fun navigateToServiceArea() {
+        findNavController(R.id.navFrag_estimate_container).navigate(R.id.action_estimateCustomerInfo_to_estimateServiceArea)
     }
 
     private val navListener =

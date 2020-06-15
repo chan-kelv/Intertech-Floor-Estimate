@@ -19,7 +19,18 @@ class EstimateCustomerInfo : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        bttn_info_start.setOnClickListener { navigateToServiceArea() }
+        bttn_custInfo_morePhone.setOnClickListener { addPhoneRow() }
+    }
+
+    private fun addPhoneRow() {
+        if (row_custInfo_phone2.visibility == View.GONE) {
+            activity?.runOnUiThread { row_custInfo_phone2.visibility = View.VISIBLE }
+        } else if (row_custInfo_phone3.visibility == View.GONE) {
+            activity?.runOnUiThread {
+                row_custInfo_phone3.visibility = View.VISIBLE
+                bttn_custInfo_morePhone.visibility = View.GONE
+            }
+        }
     }
 
     override fun onStart() {

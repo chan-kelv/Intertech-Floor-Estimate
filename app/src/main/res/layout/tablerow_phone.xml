@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/txt_custInfo_phoneTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone No:"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <EditText
+            android:id="@+id/input_custInfo_phoneNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="(604)-111-2222"
+            android:inputType="phone"
+            android:ems="10"
+            android:layout_marginStart="16dp"
+            app:layout_constraintStart_toEndOf="@id/txt_custInfo_phoneTitle"
+            app:layout_constraintTop_toTopOf="@id/txt_custInfo_phoneTitle"
+            app:layout_constraintBottom_toBottomOf="@id/txt_custInfo_phoneTitle"/>
+
+        <TextView
+            android:id="@+id/txt_custInfo_phoneExtTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:text="Ext:"
+            app:layout_constraintStart_toStartOf="@+id/txt_custInfo_phoneTitle"
+            app:layout_constraintTop_toBottomOf="@+id/input_custInfo_phoneNo" />
+
+        <EditText
+            android:id="@+id/txt_custInfo_phoneExt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:ems="6"
+            android:hint="N/A"
+            android:inputType="number"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_custInfo_phoneExtTitle"
+            app:layout_constraintStart_toEndOf="@+id/txt_custInfo_phoneExtTitle"
+            app:layout_constraintTop_toTopOf="@+id/txt_custInfo_phoneExtTitle" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Type:"
+            app:layout_constraintBottom_toBottomOf="@+id/txt_custInfo_phoneExtTitle"
+            app:layout_constraintStart_toEndOf="@+id/txt_custInfo_phoneExt"
+            app:layout_constraintTop_toTopOf="@+id/txt_custInfo_phoneExtTitle" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:entries="@array/array_phoneType"
+            android:spinnerMode="dropdown"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/textView2"
+            app:layout_constraintTop_toTopOf="@+id/textView2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</TableRow>

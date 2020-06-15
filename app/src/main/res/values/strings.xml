@@ -7,4 +7,10 @@
 
     <string name="login_email_hint">Email</string>
     <string name="login_pw_hint">Password</string>
+
+    <string-array name="array_phoneType">
+        <item>Primary</item>
+        <item>Mobile</item>
+        <item>Other</item>
+    </string-array>
 </resources>
