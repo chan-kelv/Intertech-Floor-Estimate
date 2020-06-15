@@ -3,10 +3,11 @@ package com.intertech.floorestimator.util
 import android.content.Context
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
+import com.intertech.floorestimator.FloorEstimatorApplication
 
-class TextUtils {
+class TextResUtil {
     companion object {
-        fun getStringFromRes(context: Context, stringRes: Int): String {
+        fun getStringFromRes(stringRes: Int, context: Context = FloorEstimatorApplication.appContext): String {
             return context.getString(stringRes)
         }
 
