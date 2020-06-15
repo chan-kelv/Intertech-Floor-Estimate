@@ -12,22 +12,26 @@ import com.intertech.floorestimator.R
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+    var mainActivityVm: MainViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val mainVm = ViewModelProvider(this, MainViewModel.MainViewModelFactory(MainRepository.getInstance()))
+        mainActivityVm = ViewModelProvider(this, MainViewModel.MainViewModelFactory(MainRepository.getInstance()))
             .get(MainViewModel::class.java)
-        mainVm.getUserTypeText().observe(this, Observer {
+        mainActivityVm?.getUserTypeText()?.observe(this, Observer {
             text_main_userType.text = it
         })
+    }
+
+    override fun onStart() {
+        super.onStart()
 
         checkAdminLogin()
     }
 
     private fun checkAdminLogin() {
-        // set default first
-
+        mainActivityVm?.checkAdminAuth()
     }
 }
