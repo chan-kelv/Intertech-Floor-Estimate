@@ -4,9 +4,7 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import androidx.navigation.NavController
-import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.intertech.floorestimator.R
 import kotlinx.android.synthetic.main.activity_new_estimate.*
 import timber.log.Timber
@@ -30,7 +28,7 @@ class NewEstimateActivity : BaseActivity() {
                 navigateToServiceArea()
                 consumed = true
             }
-            else -> super.onOptionsItemSelected(item)
+            else -> consumed = super.onOptionsItemSelected(item)
         }
         return consumed
     }
