@@ -1,11 +1,11 @@
-package com.intertech.floorestimator
+package com.intertech.floorestimator.model
 
 import android.text.SpannableString
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import com.google.firebase.auth.FirebaseAuth
+import com.intertech.floorestimator.R
 import com.intertech.floorestimator.ui.BaseVM
 import com.intertech.floorestimator.ui.MainRepository
 import com.intertech.floorestimator.util.TextResUtil

@@ -39,7 +39,7 @@
             app:layout_constraintTop_toBottomOf="@+id/input_custInfo_phoneNo" />
 
         <EditText
-            android:id="@+id/txt_custInfo_phoneExt"
+            android:id="@+id/input_custInfo_phoneExt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
@@ -51,25 +51,25 @@
             app:layout_constraintTop_toTopOf="@+id/txt_custInfo_phoneExtTitle" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/txt_custInfo_phoneType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:text="Type:"
             app:layout_constraintBottom_toBottomOf="@+id/txt_custInfo_phoneExtTitle"
-            app:layout_constraintStart_toEndOf="@+id/txt_custInfo_phoneExt"
+            app:layout_constraintStart_toEndOf="@+id/input_custInfo_phoneExt"
             app:layout_constraintTop_toTopOf="@+id/txt_custInfo_phoneExtTitle" />
 
         <Spinner
-            android:id="@+id/spinner"
+            android:id="@+id/spinner_custInfo_phoneType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:entries="@array/array_phoneType"
             android:spinnerMode="dropdown"
-            app:layout_constraintBottom_toBottomOf="@+id/textView2"
-            app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="@+id/textView2" />
+            app:layout_constraintBottom_toBottomOf="@+id/txt_custInfo_phoneType"
+            app:layout_constraintStart_toEndOf="@+id/txt_custInfo_phoneType"
+            app:layout_constraintTop_toTopOf="@+id/txt_custInfo_phoneType" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </TableRow>

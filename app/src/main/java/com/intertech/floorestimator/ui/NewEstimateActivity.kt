@@ -3,17 +3,24 @@ package com.intertech.floorestimator.ui
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import com.intertech.floorestimator.R
+import com.intertech.floorestimator.model.NewEstimateVM
 import kotlinx.android.synthetic.main.activity_new_estimate.*
 import timber.log.Timber
 
 class NewEstimateActivity : BaseActivity() {
+    var newEstimateVm: NewEstimateVM? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_new_estimate)
         setSupportActionBar(toolbar_estimate)
+
+        newEstimateVm = ViewModelProvider(this, NewEstimateVM.NewEstimateVmFactory())
+            .get(NewEstimateVM::class.java)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -22,15 +29,16 @@ class NewEstimateActivity : BaseActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        var consumed = false
-        when(item.itemId) {
-            R.id.item_startMenu_start -> {
-                navigateToServiceArea()
-                consumed = true
-            }
-            else -> consumed = super.onOptionsItemSelected(item)
-        }
-        return consumed
+//        var consumed = false
+//        when(item.itemId) {
+//            R.id.item_startMenu_start -> {
+//                navigateToServiceArea()
+//                consumed = true
+//            }
+//            else -> consumed = super.onOptionsItemSelected(item)
+//        }
+//        return consumed
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onResume() {

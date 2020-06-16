@@ -1,19 +1,15 @@
 package com.intertech.floorestimator.ui
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
 import com.example.flatdialoglibrary.dialog.FlatDialog
-import com.intertech.floorestimator.MainViewModel
+import com.intertech.floorestimator.model.MainViewModel
 import com.intertech.floorestimator.R
 import kotlinx.android.synthetic.main.activity_main.*
-import timber.log.Timber
 
 class MainActivity : BaseActivity() {
     var mainActivityVm: MainViewModel? = null
